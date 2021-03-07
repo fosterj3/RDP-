@@ -1,6 +1,5 @@
 --- 
 title: 'Researcher Development Program Mentors'
-author: 'UCEA and AERA'
 date: "`r Sys.Date()`"
 output:
     tufte::tufte_html
@@ -20,7 +19,7 @@ library(leaflet)
 library(readxl)
 ```
 
-```{r, echo=F}
+```{r, warning=F}
 #import data 
 mentor20 <- read_csv("2020_RDP_Mentors.csv")
 mentor21 <- read_csv("2021_RDP_Mentors.csv")
@@ -30,12 +29,26 @@ geocode <- read_xlsx("College_Geocodes.xlsx")
 ```{r}
 # Get the unique institutions 
 institutions <- union(mentor20, mentor21)
+
+#Made another dataset with more rdp mentor intstitions 
+rdp <- read_xlsx("RDP_institutions.xlsx")
 ```
 
 ```{r}
-#Only get names in the geocodes data that are in the institutions data set 
+#Change dashes in geocode dataset to at 
+geocode <- geocode %>%
+    mutate(NAME = str_replace(NAME, "-", "at"))
+
+#Only get names in the geocodes data that are in the institutions data set
 df <- geocode %>% 
-  filter(NAME %in% institutions$Institution)
+  filter(NAME %in% rdp$Institution)
+
+#match rdp colleges by unitid column 
+df <-geocode %>% 
+  filter(UNITID %in% rdp$UNITID)
+
+# See if there are any rows missing
+anti_join(rdp, df, by = c("Institution" = "NAME"))
 ```
 
 ---
