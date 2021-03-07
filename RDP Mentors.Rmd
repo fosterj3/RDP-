@@ -1,0 +1,48 @@
+---
+title: "RDP Mentors"
+author: "Lamar Foster"
+date: "3/7/2021"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(ggrepel)
+library(kableExtra)
+library(janitor)
+library(leaflet)
+library(readxl)
+```
+
+```{r set_knitr_chunk_options, echo=FALSE, message=FALSE}
+#set global output chunk options
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, collapse = F, highlight = F, results = "asis")
+
+theme_set(theme_classic())
+```
+
+```{r}
+#import data 
+mentor20 <- read_csv("2020_RDP_Mentors.csv")
+mentor21 <- read_csv("2021_RDP_Mentors.csv")
+geocode <- read_xlsx("College_Geocodes.xlsx")
+```
+
+```{r}
+# Get the unique institutions 
+institutions <- union(mentor20, mentor21)
+```
+
+```{r}
+#Only get names in the geocodes data that are in the institutions data set 
+df <- geocode %>% 
+  filter(NAME %in% institutions$Institution)
+```
+
+```{r}
+
+```
+
+
+
+
