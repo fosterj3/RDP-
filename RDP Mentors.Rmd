@@ -59,9 +59,11 @@ The Researcher Development Program (RDP) is a joint initiative between the UCEA 
 - Faculty Advisors: Stephen Kotok (2020-2022), Jennifer Clayton (2019-2021), Angela Urick (2018-2020)
 
 ---
-# Locations of RDP Mentors
+# RDP Mentors
 
-This map shows some of the locations of current and former RDP mentors. If you hover over the markers, you will see which institution is represented. 
+RDP is thankful for the many mentors who have spent countless hours pouring into graduate students. Our mentors help guide and teach RDP mentees the ins and outs of research methods. Many of our mentors come from across the United States and beyond. 
+
+This map shows some of the locations of current and former RDP mentors. If you hover over the markers, you will see which institution our mentors represent. 
 ```{r}
 df %>% 
 leaflet() %>%
