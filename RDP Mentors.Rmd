@@ -1,10 +1,8 @@
 --- 
 title: 'Researcher Development Program Mentors'
-date: "`r Sys.Date()`"
 output:
     tufte::tufte_html
 --- 
-
 ```{r set_knitr_chunk_options, echo=FALSE, message=FALSE}
 #set global output chunk options
 knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, collapse = F, highlight = F, results = "asis")
@@ -19,7 +17,7 @@ library(leaflet)
 library(readxl)
 ```
 
-```{r, warning=F}
+```{r}
 #import data 
 mentor20 <- read_csv("2020_RDP_Mentors.csv")
 mentor21 <- read_csv("2021_RDP_Mentors.csv")
@@ -35,10 +33,6 @@ rdp <- read_xlsx("RDP_institutions.xlsx")
 ```
 
 ```{r}
-#Change dashes in geocode dataset to at 
-geocode <- geocode %>%
-    mutate(NAME = str_replace(NAME, "-", "at"))
-
 #Only get names in the geocodes data that are in the institutions data set
 df <- geocode %>% 
   filter(NAME %in% rdp$Institution)
@@ -48,9 +42,10 @@ df <-geocode %>%
   filter(UNITID %in% rdp$UNITID)
 
 # See if there are any rows missing
-anti_join(rdp, df, by = c("Institution" = "NAME"))
+#anti_join(rdp, df, by = c("Institution" = "NAME"))
 ```
 
+![RDP](rdp_logo.png){#id .class width=300 height=360px}
 ---
 
 # About The Researcher Development Program 
@@ -66,13 +61,14 @@ The Researcher Development Program (RDP) is a joint initiative between the UCEA 
 ---
 # Locations of RDP Mentors
 
-This map shows some of the locations of current and former RDP mentors. If you click on the markers, you will see which institution is represented. 
+This map shows some of the locations of current and former RDP mentors. If you hover over the markers, you will see which institution is represented. 
 ```{r}
 df %>% 
 leaflet() %>%
 addProviderTiles(providers$Esri.WorldImagery, group = "World Imagery") %>%
+addProviderTiles(providers$CartoDB.Positron, group = "Carto") %>% 
 addProviderTiles(providers$Stamen.TonerLite, group = "Toner Lite") %>%
-addLayersControl(baseGroups = c("Toner Lite", "World Imagery")) %>%
+addLayersControl(baseGroups = c("Toner Lite", "Carto", "World Imagery")) %>%
 addMarkers(label = df$NAME)
 
 ```
