@@ -43,18 +43,17 @@ df <- geocode %>%
 # About The Researcher Development Program 
 The Researcher Development Program (RDP) is a joint initiative between the UCEA Graduate Student Council (GSC) and the AERA Leadership for School Improvement Special Interest Group (LSI SIG). RDP is aimed at providing graduate students and faculty members at different institutions with opportunities to form research-focused collaborations. Graduate students benefit from the expertise of their faculty mentor and receive feedback throughout the course of project development. Faculty members benefit from collaboration with emerging scholars who share their research interests. The program is unique in its focus on establishing ongoing mentor-mentee relationships through the development of a research product which could include, but is not limited to, conference proposals or presentations, posters, policy briefs, and papers.
 
-Current RDP Program Committee
+**Current RDP Program Committee**
 
-2020 Student Representatives: Parker Morse Andreoli, Briana Bostic, Mariama Nagbe, Lamar Foster, and Frank Gause 
-2019 Student Representatives: Lamar Foster, Parker Morse Andreoli, Mariama Nagbe
-2018 Student Representatives: Alison Wilson, Lam Pham, Tamilah Richardson, Bryan V anGronigen
-
-Faculty Advisor: Angela Urick (2018-2020) Jennifer Clayton (2019-2021), Stephen Kotok (2020-2022)
+- 2020 Student Representatives: Parker Morse Andreoli, Briana Bostic, Mariama Nagbe, Lamar Foster, and Frank Gause 
+- 2019 Student Representatives: Lamar Foster, Parker Morse Andreoli, Mariama Nagbe
+- 2018 Student Representatives: Alison Wilson, Lam Pham, Tamilah Richardson, Bryan V anGronigen
+- Faculty Advisors: Stephen Kotok (2020-2022), Jennifer Clayton (2019-2021), Angela Urick (2018-2020)
 
 ---
 # Locations of RDP Mentors
 
-This map is shows some of the locations of current and former RDP mentors. If you click on the markers, you will see which institution is represented. 
+This map shows some of the locations of current and former RDP mentors. If you click on the markers, you will see which institution is represented. 
 ```{r}
 df %>% 
 leaflet() %>%
