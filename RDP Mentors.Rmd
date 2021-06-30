@@ -50,6 +50,7 @@ df <-geocode %>%
 RDP is thankful for the many mentors who have spent countless hours pouring into graduate students. Our mentors help guide and teach RDP mentees the ins and outs of research methods. Many of our mentors come from across the United States and beyond. 
 
 This map shows some of the locations of current and former RDP mentors. If you hover over the markers, you will see which institution our mentors represent. 
+
 ```{r}
 df %>% 
 leaflet() %>%
@@ -60,7 +61,5 @@ addLayersControl(baseGroups = c("Toner Lite", "Carto", "World Imagery")) %>%
 addMarkers(label = df$NAME)
 
 ```
-
-
 
 
